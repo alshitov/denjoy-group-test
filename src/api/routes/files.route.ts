@@ -1,15 +1,9 @@
 import { Router } from 'express'
+import { upload, send } from '../controllers/files/files.controller'
 
 const filesRouter = Router()
 
-filesRouter.post('/:id', (req, res, next) => {
-  console.log('upload file')
-  return next()
-})
-
-filesRouter.get('/:id', (req, res, next) => {
-  console.log('send file')
-  return next()
-})
+filesRouter.post('/', upload)
+filesRouter.get('/:id', send)
 
 export default filesRouter

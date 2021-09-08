@@ -1,5 +1,7 @@
 import { v4 as uuid } from 'uuid'
 import { SHA256 } from '../api/controllers/auth/crypto/sha256'
+import fs from 'fs'
+import path from 'path'
 
 export type User = {
   id: string
@@ -10,8 +12,6 @@ export type User = {
 
 export type File = {
   id: string
-  name: string
-  size: number
 }
 
 type DB = {
@@ -34,13 +34,26 @@ const db: DB = {
       role: 'USER'
     }
   ],
-  files: []
+  files: fs.readdirSync(path.join(__dirname, '../../', 'uploads')).map(entry => ({ id: entry }))
 }
 
 export function findUserByUsername (username: string): User | null {
   for (let user of db.users) {
     if (user.username === username) {
       return user
+    }
+  }
+  return null
+}
+
+export function uploadFile (id: string): void {
+  db.files.push({ id })
+}
+
+export function findFileById (id: string): File | null {
+  for (let file of db.files) {
+    if (file.id === id) {
+      return file
     }
   }
   return null
