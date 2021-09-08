@@ -1,6 +1,13 @@
-# Denjoy Test
-Users registered could be found in `./src/api/db.ts`.
+# Denjoy Group Test
+# Clone and run:
+```
+git clone git@github.com:alshitov/denjoy-group-test.git
+cd denjoy-group-test
+npm i
+npm start
+```
 # Auth results:
+(Users registered could be found in `./src/api/db.ts`)
 ### Invalid log in params:
 ![screen](https://raw.githubusercontent.com/alshitov/denjoy-group-test/master/screenshots/1.png)
 ### Non-registered user log in:
