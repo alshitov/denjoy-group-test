@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import api from './api'
 
 dotenv.config()
-const port = process.env.SERVER_PORT
+const port = process.env.SERVER_PORT || 3000
 
 const app = express()
 app.use('/api/v1', api)

@@ -3,8 +3,8 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const port = process.env.REDIS_PORT
-const host = process.env.HOST
+const port = process.env.REDIS_PORT || 6379
+const host = process.env.HOST || '127.0.0.1'
 
 const redisClient = createClient(`redis://${host}:${port}`)
 

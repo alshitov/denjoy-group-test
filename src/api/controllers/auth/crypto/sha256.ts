@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const key = process.env.SECRET_KEY
+const key = process.env.SECRET_KEY || 'secret_key'
 
 export function SHA256 (payload: string): string {
   if (key == null) {
